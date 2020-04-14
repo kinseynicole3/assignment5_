@@ -10,7 +10,9 @@
             [switch]
             [branch]
             [commit]
-            [rev-list]))
+            [rev-list]
+            [log]
+            [explore]))
 
 (defn switches [args db dir]
   (let [command-check (fn [command]
@@ -41,6 +43,8 @@
       (= (first args) "branch") (command-check branch/branch)
       (= (first args) "commit") (command-check commit/commit)
       (= (first args) "rev-list") (command-check rev-list/rev-list)
+      (= (first args) "log") (command-check log/log)
+      (= (first args) "explore") (command-check explore/explore)
       :else (println "Error: invalid command"))))
 
 (defn -main [& args]
