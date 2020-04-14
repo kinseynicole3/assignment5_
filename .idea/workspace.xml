@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b86a52c0-8a49-4f69-9e8c-ee969e9173e9" name="Default Changelist" comment="" />
+    <list default="true" id="b86a52c0-8a49-4f69-9e8c-ee969e9173e9" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/explore.clj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/log.clj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/kinseyness.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/kinseyness.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Archive.zip" beforeDir="false" afterPath="$PROJECT_DIR$/Archive.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/idiot.clj" beforeDir="false" afterPath="$PROJECT_DIR$/src/idiot.clj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/rev_list.clj" beforeDir="false" afterPath="$PROJECT_DIR$/src/rev_list.clj" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,7 +30,18 @@
       </map>
     </option>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Clojure Namespace" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1ZpEchRH82XtucXdB5ovO1IqQOD" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -29,6 +49,8 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="cursive.last.file.extension./Users/kinseyness/IdeaProjects/comp590/assignment5/src" value="clj" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
   </component>
   <component name="RecentsManager">
@@ -86,6 +108,10 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
+    <state x="579" y="319" key="Github.ShareDialog" timestamp="1586892957366">
+      <screen x="0" y="23" width="1440" height="792" />
+    </state>
+    <state x="579" y="319" key="Github.ShareDialog/0.23.1440.792@0.23.1440.792" timestamp="1586892957366" />
     <state x="97" y="145" key="new project wizard" timestamp="1586392268973">
       <screen x="0" y="23" width="1440" height="795" />
     </state>
