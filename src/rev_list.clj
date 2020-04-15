@@ -18,7 +18,7 @@
 ;; TODO: change this function so it returns ref if not '@' or 'HEAD'. else: find head ref and return that.
 (defn get-head-contents [dir-db ref]
 
-  (if (and (not= ref "HEAD") (not= ref "@"))
+  (if (and (not (nil? ref)) (not= ref "HEAD") (not= ref "@"))
     ref
     (do
     (let [head-contents (slurp (io/as-file (str dir-db "/HEAD")))
@@ -36,8 +36,8 @@
         contents (get (str/split (slurp commit-object) #"\000") 1)
         contents-list (str/split (str/replace contents #"\n" " ") #" ")]
 
-    (if (= (first contents-list) "parent")
-      (recurse dir-db (second contents-list))
+    (if (= (nth contents-list 2) "parent")
+      (recurse dir-db (nth contents-list 3))
       (println commit-address)
       )
     )
@@ -53,8 +53,11 @@
         contents (get (str/split (slurp commit-object) #"\000") 1)
         contents-list (str/split (str/replace contents #"\n" " ") #" ")]
 
-    (if (= (first contents-list) "parent")
-      (recurse dir-db (second contents-list))
+
+    (if (= (nth contents-list 2) "parent")
+      (do
+        (println commit-address)
+        (recurse dir-db (nth contents-list 3)))
       (println commit-address)
       )
 
@@ -63,33 +66,35 @@
 
 ;; TODO: check to make sure ref exists. if not, print a statement
 (defn fixed-print [dir-db ref n]
+  (if (not (.exists (io/as-file (str dir-db "/refs/heads/" ref))))
+    (println (str "Error: could not find ref named " ref "."))
+    (do
   (let [commit-address (str/trim-newline (slurp (io/as-file (str dir-db "/refs/heads/" ref))))
         commit-object (unzip (str dir-db "/objects/" (subs commit-address 0 2) "/" (subs commit-address 2)))
         contents (get (str/split (slurp commit-object) #"\000") 1)
         contents-list (str/split (str/replace contents #"\n" " ") #" ")]
 
-    ;(println (first contents-list))
-    ;(println (second contents-list))
-    (if (and (not= "parent" (first contents-list)) (> n 0)) (println commit-address))
-
+    ;(if (and (not= "parent" (nth contents-list 2)) (> n 0)) (println commit-address))
+    (println commit-address)
         (loop [x n
                contents0 contents-list]
 
           (cond
             (= x 0) nil
-            (not= (first contents0) "parent") nil
+            (not= (nth contents0 2) "parent") nil
             :else
             (do
-              (let [commit-object (unzip (str dir-db "/objects/" (subs (second contents0) 0 2) "/" (subs (second contents0) 2)))
-                    contents-new (get (str/split (slurp commit-object) #"\000") 1)
-                    contents-new-list (str/split contents-new #" ")]
 
-                (println (second contents0)) ;; print
+              (println (nth contents0 3)) ;; print
+              (let [commit-object (unzip (str dir-db "/objects/" (subs (nth contents0 3) 0 2) "/" (subs (nth contents0 3) 2)))
+                    contents-new (get (str/split (slurp commit-object) #"\000") 1)
+                    contents-new-list (str/split (str/replace contents-new #"\n" " ") #" ")]
+
                 (recur (dec x) contents-new-list)
                 ))
             )
           )
-    )
+    )))
   )
 
 (defn n-flag? [pars]
